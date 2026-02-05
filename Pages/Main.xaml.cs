@@ -1,17 +1,6 @@
-﻿using System;
+﻿using FurnitureStore_Bartova.Classes;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace FurnitureStore_Bartova.Pages
 {
@@ -20,9 +9,20 @@ namespace FurnitureStore_Bartova.Pages
     /// </summary>
     public partial class Main : Page
     {
+        public List<Item> items = new List<Item>();
         public Main()
         {
             InitializeComponent();
+            items.Add(new Item("Шкаф", 20000, "C:\\Users\\ADMIN\\Desktop\\ощепков практики\\FurnitureStore_Bartova\\Images\\6832637706.jpg"));
+            LoadItems();
+        }
+        public void LoadItems()
+        {
+            parent.Children.Clear();
+            foreach(Item item in items)
+            {
+                parent.Children.Add(new Elements.Item(item));
+            }
         }
     }
 }

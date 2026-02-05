@@ -23,6 +23,11 @@ namespace FurnitureStore_Bartova
         public MainWindow()
         {
             InitializeComponent();
+            OpenPage(new Pages.Main());
+        }
+        public void OpenPage(Page page)
+        {
+            frame.Navigate(page);
         }
     }
 }
